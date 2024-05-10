@@ -1,0 +1,48 @@
+<div class="bg-gray-200 h-screen w-full">
+    <div class="flex flex-row gap-6 p-4 h-screen">
+        <div class="text-start flex flex-col justify-between w-full h-full p-2 rounded-lg hover:border hover:border-gray-300">
+            <h3 class="text-white mb-2"> Inicio </h3>
+            <div class="flex flex-col justify-center gap-2 overflow-y-auto" cdkDropList id="todo" [cdkDropListConnectedTo]="['process', 'done']" [cdkDropListData]="todo" (cdkDropListDropped)="dropped($event)">
+                <div class="example-box" *ngFor="let item of todo" cdkDrag>
+                    <div class="example-custom-placeholder" *cdkDragPlaceholder></div>
+                    {{item}}
+                </div>
+            </div>
+            <div (click)="addNewItem()" class="text-white text-center font-medium cursor-pointer">
+                <button class="w-full p-1 rounded-lg hover:bg-gray-600">
+                    + Agregar Tarea
+                </button>
+            </div>
+        </div>
+
+        <div class="text-start flex flex-col justify-between w-full h-full p-2 rounded-lg hover:border hover:border-gray-300">
+            <h3 class="text-white mb-2"> En Proceso </h3>
+            <div class="flex flex-col justify-center gap-2 overflow-y-auto" cdkDropList id="process" [cdkDropListConnectedTo]="['done', 'todo']" [cdkDropListData]="process" (cdkDropListDropped)="dropped($event)">
+                <div class="example-box" *ngFor="let item of process" cdkDrag>
+                    <div class="example-custom-placeholder" *cdkDragPlaceholder></div>
+                    {{item}}
+                </div>
+            </div>
+            <div (click)="addNewItem()" class="text-white text-center font-medium cursor-pointer">
+                <button class="w-full p-1 rounded-lg hover:bg-gray-600">
+                    + Agregar Tarea
+                </button>
+            </div>
+        </div>
+
+        <div class="text-start flex flex-col justify-between w-full h-full p-2 rounded-lg hover:border hover:border-gray-300">
+            <h3 class="text-white mb-2"> Finalizado </h3>
+            <div class="flex flex-col justify-center gap-2 overflow-y-auto" cdkDropList id="done" [cdkDropListConnectedTo]="['process', 'todo']" [cdkDropListData]="done" (cdkDropListDropped)="dropped($event)">
+                <div class="example-box" *ngFor="let item of done" cdkDrag>
+                    <div class="example-custom-placeholder" *cdkDragPlaceholder></div>
+                    {{item}}
+                </div>
+            </div>
+            <div (click)="addNewItem()" class="text-white text-center font-medium cursor-pointer">
+                <button class="w-full p-1 rounded-lg hover:bg-gray-600">
+                    + Agregar Tarea
+                </button>
+            </div>
+        </div>
+    </div>
+</div>

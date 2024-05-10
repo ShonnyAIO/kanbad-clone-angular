@@ -1,1 +1,27 @@
 /* You can add global styles to this file, and also import other style files */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #1e1f21;
+}
+
+::-webkit-scrollbar {
+  width: 4px;
+}
+
+::-webkit-scrollbar:horizontal {
+  height: 8px;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-rose-900 rounded-xl;
+}
+
+.task > ::-webkit-scrollbar-thumb {
+  @apply bg-sky-500 rounded-xl;
+}
